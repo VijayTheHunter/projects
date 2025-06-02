@@ -811,29 +811,50 @@ body {
 
 /* Force desktop view scaling on mobile without layout breaking */
 @media (max-width: 1024px) {
-    
+    html {
+        transform: scale(0.85);
+        transform-origin: top left;
+        width: 117.65%;
+        overflow-x: hidden;
+    }
 }
 
 @media (max-width: 768px) {
-    
+    html {
+        transform: scale(0.75);
+        transform-origin: top left;
+        width: 133.33%;
+        overflow-x: hidden;
+    }
 }
 
 @media (max-width: 480px) {
-    
+    html {
+        transform: scale(0.6);
+        transform-origin: top left;
+        width: 166.67%;
+        overflow-x: hidden;
+    }
 }
 
 
 /* Improved scaling for mobile to maintain alignment and layout */
 @media (max-width: 1024px) {
-    
+    body {
+        zoom: 0.85;
+    }
 }
 
 @media (max-width: 768px) {
-    
+    body {
+        zoom: 0.75;
+    }
 }
 
 @media (max-width: 480px) {
-    
+    body {
+        zoom: 0.6;
+    }
 }
 
 /* Prevent infinite scroll by setting minimum height on body and sections */
