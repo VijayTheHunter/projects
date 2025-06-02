@@ -26,6 +26,11 @@ body {
     flex-direction: column;
 }
 
+/* Ensure viewport scaling for desktop-like view on mobile */
+@-webkit-viewport { width: device-width; }
+@-moz-viewport { width: device-width; }
+@viewport { width: device-width; }
+
 /* Custom Cursor */
 .custom-cursor, .custom-cursor-follower {
     position: fixed;
@@ -162,18 +167,6 @@ body {
     height: 3px;
     background: var(--light);
     transition: all 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* Hero Section */
@@ -556,11 +549,6 @@ body {
     border: 1px solid rgba(124, 58, 237, 0.5);
 }
 
-.project-links {
-    display: flex;
-    gap: 1rem;
-}
-
 .project-link {
     padding: 0.8rem 1.8rem;
     background: var(--primary);
@@ -667,76 +655,95 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Maintain desktop-like layout with slight adjustments */
+    body {
+        font-size: 16px; /* Ensure text remains readable */
+    }
+
+    .navbar {
+        padding: 1rem 2rem;
+    }
+
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(15, 23, 42, 0.95);
-        flex-direction: column;
+        gap: 1.5rem; /* Slightly reduce gap for smaller screens */
+    }
+
+    .nav-links a {
+        font-size: 1rem; /* Slightly smaller font for navigation */
+    }
+
+    .hero {
         padding: 2rem;
-        gap: 1.5rem;
     }
 
-    .nav-links.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: flex;
+    .hero-content {
+        padding: 2rem;
     }
 
     .hero h1 {
-        font-size: 3rem;
+        font-size: 3.5rem; /* Slightly reduce for better fit */
     }
 
     .hero .tagline {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .hero .description {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .section {
+        padding: 3rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
     }
 
     .about-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2fr 1fr; /* Maintain desktop grid */
         gap: 2rem;
     }
 
     .stats-card {
-        grid-template-columns: repeat(2, 1fr);
+        padding: 1.5rem;
         gap: 1rem;
     }
 
-    .stat-item {
-        padding: 0.8rem;
-    }
-
     .stat-number {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .stat-label {
         font-size: 0.8rem;
     }
 
-    .section-title {
-        font-size: 2.5rem;
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Maintain grid */
+    }
+
+    .skill-card {
+        padding: 1.5rem;
     }
 
     .projects-grid {
-        grid-template-columns: 1fr;
-        min-height: auto;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Maintain grid */
+        gap: 1.5rem;
     }
 
-    .skills-container {
-        grid-template-columns: 1fr;
+    .project-image {
+        height: 250px; /* Slightly smaller images */
     }
 
     .contact-grid {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; /* Maintain horizontal layout */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        gap: 1rem;
     }
 
     .contact-card a {
@@ -800,4 +807,32 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, var(--secondary), var(--primary));
+}
+
+/* Force desktop view scaling on mobile without layout breaking */
+@media (max-width: 1024px) {
+    html {
+        transform: scale(0.85);
+        transform-origin: top left;
+        width: 117.65%;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        transform: scale(0.75);
+        transform-origin: top left;
+        width: 133.33%;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        transform: scale(0.6);
+        transform-origin: top left;
+        width: 166.67%;
+        overflow-x: hidden;
+    }
 }
