@@ -26,7 +26,7 @@ body {
     flex-direction: column;
 }
 
-/* Ensure viewport scaling for desktop-like view on mobile */
+/* Ensure viewport scaling for proper fit on mobile */
 @-webkit-viewport { width: device-width; }
 @-moz-viewport { width: device-width; }
 @viewport { width: device-width; }
@@ -178,11 +178,13 @@ body {
     text-align: center;
     position: relative;
     padding: 3rem;
+    z-index: 1;
 }
 
 .hero-content {
     max-width: 1000px;
     padding: 3rem;
+    width: 100%;
 }
 
 .profile-image {
@@ -193,6 +195,7 @@ body {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     padding: 6px;
     animation: pulse 2.5s infinite;
+    max-width: 100%;
 }
 
 .profile-image img {
@@ -280,6 +283,7 @@ body {
     padding: 4rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .section-title {
@@ -299,6 +303,7 @@ body {
     grid-template-columns: 2fr 1fr;
     gap: 3rem;
     align-items: stretch;
+    width: 100%;
 }
 
 .about-details {
@@ -393,6 +398,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2.5rem;
     margin-top: 2rem;
+    width: 100%;
 }
 
 .skill-card {
@@ -462,10 +468,12 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
-    min-height: calc(100vh - 200px);
+    width: 100%;
+    justify-items: center;
+    align-items: stretch;
 }
 
 .project-card {
@@ -475,6 +483,11 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 100%;
 }
 
 .project-card:hover {
@@ -484,8 +497,9 @@ body {
 
 .project-image {
     width: 100%;
-    height: 300px;
+    height: 220px;
     position: relative;
+    overflow: hidden;
 }
 
 .project-image img {
@@ -514,30 +528,35 @@ body {
 }
 
 .project-content {
-    padding: 2rem;
+    padding: 1.5rem;
     background: rgba(15, 23, 42, 0.9);
     backdrop-filter: blur(10px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .project-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--light);
 }
 
 .project-description {
-    color: var(--light);
+    color: var(--gray);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: auto;
 }
 
 .tech-tag {
@@ -547,6 +566,12 @@ body {
     border-radius: 15px;
     font-size: 0.9rem;
     border: 1px solid rgba(124, 58, 237, 0.5);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .project-link {
@@ -574,6 +599,7 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding-bottom: 2rem;
+    width: 100%;
 }
 
 .contact-intro {
@@ -590,6 +616,7 @@ body {
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: nowrap;
+    width: 100%;
 }
 
 .contact-card {
@@ -655,9 +682,8 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Maintain desktop-like layout with slight adjustments */
     body {
-        font-size: 16px; /* Ensure text remains readable */
+        font-size: 16px;
     }
 
     .navbar {
@@ -665,11 +691,11 @@ body {
     }
 
     .nav-links {
-        gap: 1.5rem; /* Slightly reduce gap for smaller screens */
+        gap: 1.5rem;
     }
 
     .nav-links a {
-        font-size: 1rem; /* Slightly smaller font for navigation */
+        font-size: 1rem;
     }
 
     .hero {
@@ -681,7 +707,7 @@ body {
     }
 
     .hero h1 {
-        font-size: 3.5rem; /* Slightly reduce for better fit */
+        font-size: 3.5rem;
     }
 
     .hero .tagline {
@@ -706,7 +732,7 @@ body {
     }
 
     .about-grid {
-        grid-template-columns: 2fr 1fr; /* Maintain desktop grid */
+        grid-template-columns: 2fr 1fr;
         gap: 2rem;
     }
 
@@ -724,7 +750,7 @@ body {
     }
 
     .skills-container {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Maintain grid */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     .skill-card {
@@ -732,17 +758,17 @@ body {
     }
 
     .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Maintain grid */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5rem;
     }
 
     .project-image {
-        height: 250px; /* Slightly smaller images */
+        height: 200px;
     }
 
     .contact-grid {
-        flex-direction: row; /* Maintain horizontal layout */
-        flex-wrap: wrap; /* Allow wrapping if needed */
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 1rem;
     }
 
@@ -762,6 +788,11 @@ body {
 
     .contact-card p {
         font-size: 0.6rem;
+    }
+
+    /* Disable custom cursor on mobile for better touch interaction */
+    .custom-cursor, .custom-cursor-follower {
+        display: none;
     }
 }
 
@@ -809,132 +840,27 @@ body {
     background: linear-gradient(180deg, var(--secondary), var(--primary));
 }
 
-/* Force desktop view scaling on mobile without layout breaking */
+/* Remove aggressive scaling to prevent content overflow */
 @media (max-width: 1024px) {
-    html {
-        transform: scale(0.85);
-        transform-origin: top left;
-        width: 117.65%;
+    html, body {
+        width: 100%;
         overflow-x: hidden;
+        transform: none;
     }
 }
 
 @media (max-width: 768px) {
-    html {
-        transform: scale(0.75);
-        transform-origin: top left;
-        width: 133.33%;
+    html, body {
+        width: 100%;
         overflow-x: hidden;
+        transform: none;
     }
 }
 
 @media (max-width: 480px) {
-    html {
-        transform: scale(0.6);
-        transform-origin: top left;
-        width: 166.67%;
+    html, body {
+        width: 100%;
         overflow-x: hidden;
+        transform: none;
     }
-}
-
-
-/* Improved scaling for mobile to maintain alignment and layout */
-@media (max-width: 1024px) {
-    body {
-        zoom: 0.85;
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        zoom: 0.75;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        zoom: 0.6;
-    }
-}
-
-/* Prevent infinite scroll by setting minimum height on body and sections */
-body, .section, .projects-grid, .hero {
-    min-height: auto !important;
-    overflow-x: hidden !important;
-}
-
-/* Prevent profile image from pushing layout */
-.profile-image {
-    max-width: 200px;
-    max-height: 200px;
-    margin: 0 auto 1.5rem;
-}
-
-/* Project card improvements for scaling */
-.project-card {
-    min-height: 100%;
-}
-
-.project-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-
-/* Enhanced project grid and card layout for clarity across devices */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    justify-items: center;
-    align-items: stretch;
-}
-
-.project-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    max-width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    background: var(--surface);
-    transition: all 0.3s ease;
-}
-
-.project-image {
-    height: 220px;
-    overflow: hidden;
-}
-
-.project-content {
-    flex: 1;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.project-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.project-description {
-    font-size: 1rem;
-    color: var(--gray);
-    margin-bottom: 1rem;
-}
-
-.project-tech {
-    margin-top: auto;
-    margin-bottom: 1rem;
-}
-
-.project-links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
 }
