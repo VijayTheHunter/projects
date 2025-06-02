@@ -196,11 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Theme Toggle
     const themeToggle = document.querySelector('.theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-        });
-    }
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+    });
 
     // Scroll Event Listener
     window.addEventListener('scroll', () => {
