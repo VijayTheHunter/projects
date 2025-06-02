@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=1024, initial-scale=1.0, user-scalable=no">
     <title>Vijay - IoT & Embedded Systems Engineer</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="bg-animation"></div>
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
     <div class="scroll-indicator">
         <div class="scroll-progress" id="scrollProgress"></div>
     </div>
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
 
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -39,16 +39,16 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="profile-image">
-                <img src="profile.jpg" alt="Profile Image">
+                <img src="images/profile.jpg" alt="Profile Image">
             </div>
             <h1>Hi, I'm Vijay</h1>
-            <div class="tagline">IoT Engineer, Embedded Systems & Full Stack Developer</div>
+            <div class="tagline">IoT Engineer & Embedded Systems Developer</div>
             <p class="description">
                 Passionate about building intelligent connected systems that bridge the physical and digital worlds. Specializing in IoT solutions, embedded programming, and mobile app development with a focus on innovative hardware-software integration.
             </p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <a href="#projects" class="btn btn-primary"><i class="fas fa-briefcase"></i> View My Work</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Get In Touch</a>
             </div>
         </div>
     </section>
@@ -88,7 +88,7 @@
         <h2 class="section-title">Technical Skills</h2>
         <div class="skills-container">
             <div class="skill-card">
-                <h3>Embedded Systems</h3>
+                <h3><i class="fas fa-microchip"></i> Embedded Systems</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">ESP32/ESP8266</span>
                     <span class="skill-tag">STM32</span>
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="skill-card">
-                <h3>IoT & Connectivity</h3>
+                <h3><i class="fas fa-wifi"></i> IoT & Connectivity</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">WiFi</span>
                     <span class="skill-tag">Bluetooth</span>
@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class="skill-card">
-                <h3>Mobile Development</h3>
+                <h3><i class="fas fa-mobile-alt"></i> Mobile Development</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Flutter</span>
                     <span class="skill-tag">Dart</span>
@@ -118,7 +118,7 @@
                 </div>
             </div>
             <div class="skill-card">
-                <h3>Cloud & Backend</h3>
+                <h3><i class="fas fa-cloud"></i> Cloud & Backend</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Firebase</span>
                     <span class="skill-tag">Fast API</span>
@@ -135,12 +135,14 @@
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">
-                    <img src="ambulance.jpg" alt="Smart Ambulance System">
+                    <img src="images/ambulance.jpg" alt="Smart Ambulance System">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Smart Ambulance System</h3>
-                    <p class="project-description">A smart traffic management system with 3 Flutter apps for emergency response. Automatically controls traffic signals using ESP32/STM32 integration and Google Maps for real-time tracking.</p>
+                    <p class="project-description">
+                        A smart traffic management system with 3 Flutter apps for emergency response. Automatically controls traffic signals using ESP32/STM32 integration and Google Maps for real-time tracking.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">Flutter</span>
                         <span class="tech-tag">ESP32</span>
@@ -149,37 +151,42 @@
                         <span class="tech-tag">Google Maps</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
-                        <a href="https://demo.com" class="project-link">Demo</a>
+                        <a href="https://github.com/VijayTheHunter/smart-ambulance" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#" class="project-link"><i class="fas fa-eye"></i> Demo</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="keyboard.jpg" alt="Bluetooth Attendance System">
+                    <img src="images/keyboard.jpg" alt="Bluetooth Attendance System">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Bluetooth Attendance System</h3>
-                    <p class="project-description">A custom wireless keyboard using ESP32 and push buttons for staff attendance management, integrated with a Flutter app via Bluetooth.</p>
+                    <p class="project-description">
+                        A custom wireless keyboard using ESP32 and push buttons for staff attendance management, integrated with a Flutter app via Bluetooth.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">ESP32</span>
-                        <span class="tech-tag">Bluetooth</roubleshootingshot">Flutter</span>
+                        <span class="tech-tag">Bluetooth</span>
+                        <span class="tech-tag">Flutter</span>
                         <span class="tech-tag">Hardware Design</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
+                        <a href="https://github.com/VijayTheHunter/bluetooth-attendance" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="home.jpg" alt="Smart Home Automation">
+                    <img src="images/home.jpg" alt="Smart Home Automation">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Smart Home Automation</h3>
-                    <p class="project-description">A Flutter app to control room appliances (lights, fans) using ESP32 and Firebase for real-time status syncing and monitoring.</p>
+                    <p class="project-description">
+                        A Flutter app to control room appliances (lights, fans) using ESP32 and Firebase for real-time status syncing and monitoring.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">ESP32</span>
                         <span class="tech-tag">Flutter</span>
@@ -187,18 +194,20 @@
                         <span class="tech-tag">IoT</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
+                        <a href="https://github.com/VijayTheHunter/smart-home" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="glasses.jpg" alt="Smart Glasses for Visually Impaired">
+                    <img src="images/glasses.jpg" alt="Smart Glasses for Visually Impaired">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Smart Glasses for Visually Impaired</h3>
-                    <p class="project-description">Wearable assistive tech using ultrasonic sensors and ESP32 to detect obstacles and alert users via vibration and audio feedback.</p>
+                    <p class="project-description">
+                        Wearable assistive tech using ultrasonic sensors and ESP32 to detect obstacles and alert users via vibration and audio feedback.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">ESP32</span>
                         <span class="tech-tag">Ultrasonic Sensors</span>
@@ -206,18 +215,20 @@
                         <span class="tech-tag">Accessibility</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
+                        <a href="https://github.com/VijayTheHunter/smart-glasses" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="streetlight.jpg" alt="Solar Smart Street Lights">
+                    <img src="images/streetlight.jpg" alt="Solar Smart Street Lights">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Solar Smart Street Lights</h3>
-                    <p class="project-description">Energy-efficient street lighting system with motion detection using ESP8266, solar power, and Blynk for IoT monitoring.</p>
+                    <p class="project-description">
+                        Energy-efficient street lighting system with motion detection using ESP8266, solar power, and Blynk for IoT monitoring.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">ESP8266</span>
                         <span class="tech-tag">Solar Power</span>
@@ -225,18 +236,20 @@
                         <span class="tech-tag">Blynk</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
+                        <a href="https://github.com/VijayTheHunter/solar-street-lights" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="voting.jpg" alt="Secure Voting System">
+                    <img src="images/voting.jpg" alt="Secure Voting System">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Secure Voting System</h3>
-                    <p class="project-description">A secure digital voting platform with Flutter frontend, Firebase backend, user authentication, and real-time result analytics.</p>
+                    <p class="project-description">
+                        A secure digital voting platform with Flutter frontend, Firebase backend, user authentication, and real-time result analytics.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">Flutter</span>
                         <span class="tech-tag">Firebase</span>
@@ -244,35 +257,39 @@
                         <span class="tech-tag">Real-time DB</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
+                        <a href="https://github.com/VijayTheHunter/secure-voting" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="mobile.jpg" alt="Mobile Display Replacement">
+                    <img src="images/mobile.jpg" alt="Mobile Display Replacement">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Mobile Display Replacement</h3>
-                    <p class="project-description">Hands-on repair of a smartphone screen, showcasing hardware troubleshooting and precision skills.</p>
+                    <p class="project-description">
+                        Hands-on repair of a smartphone screen, showcasing hardware troubleshooting and precision skills.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">Hardware Repair</span>
                         <span class="tech-tag">Troubleshooting</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
+                        <a href="https://github.com/VijayTheHunter/mobile-repair" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="gas_alert.jpg" alt="Gas Alert and Automation">
+                    <img src="images/gas_alert.jpg" alt="Gas Alert and Automation">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Gas Alert and Automation</h3>
-                    <p class="project-description">A Flutter app integrated with ESP32 and MQ2 sensor to detect gas leaks, automatically cut power, close the gas lid, and activate an exhaust fan, with real-time alerts via Firebase.</p>
+                    <p class="project-description">
+                        A Flutter app integrated with ESP32 and MQ2 sensor to detect gas leaks, automatically cut power, close the gas lid, and activate an exhaust fan, with real-time alerts via Firebase.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">Flutter</span>
                         <span class="tech-tag">ESP32</span>
@@ -281,18 +298,20 @@
                         <span class="tech-tag">IoT</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
+                        <a href="https://github.com/VijayTheHunter/gas-alert" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="air_quality.jpg" alt="Air Quality Monitoring and Alert">
+                    <img src="images/air_quality.jpg" alt="Air Quality Monitoring and Alert">
                     <div class="image-overlay"></div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Air Quality Monitoring and Alert</h3>
-                    <p class="project-description">A system using ESP32 and MQ2 sensor to monitor air quality, send real-time alerts, and provide analytics through a Flutter app connected to Firebase.</p>
+                    <p class="project-description">
+                        A system using ESP32 and MQ2 sensor to monitor air quality, send real-time alerts, and provide analytics through a Flutter app connected to Firebase.
+                    </p>
                     <div class="project-tech">
                         <span class="tech-tag">ESP32</span>
                         <span class="tech-tag">MQ2 Sensor</span>
@@ -301,7 +320,7 @@
                         <span class="tech-tag">Analytics</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com" class="project-link">GitHub</a>
+                        <a href="https://github.com/VijayTheHunter/air-quality" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
@@ -311,39 +330,41 @@
     <section class="section contact" id="contact">
         <h2 class="section-title">Let's Connect</h2>
         <div class="contact-content">
-            <p class="contact-intro">Ready to collaborate on innovative IoT and embedded systems projects? Reach out to discuss how we can build the future together!</p>
+            <p class="contact-intro">
+                Ready to collaborate on innovative IoT and embedded systems projects? Reach out to discuss how we can build the future together!
+            </p>
             <div class="contact-grid">
                 <div class="contact-card">
-                    <a href="mailto:[email protected]">
-                        <span class="contact-icon">📧</span>
+                    <a href="mailto:vjbaskar.tech@gmail.com?subject=Let's Collaborate on an IoT Project&body=Hi Vijay, I came across your portfolio and would love to discuss a potential collaboration!">
+                        <i class="fas fa-envelope contact-icon"></i>
                         <span>Email Me</span>
-                        <p>[email protected]</p>
+                        <p>vjbaskar.tech@gmail.com</p>
                     </a>
                 </div>
                 <div class="contact-card">
-                    <a href="https://linkedin.com" target="_blank">
-                        <span class="contact-icon">🔗</span>
+                    <a href="https://www.linkedin.com/in/vijaybaskar0305/" target="_blank">
+                        <i class="fab fa-linkedin contact-icon"></i>
                         <span>LinkedIn</span>
                         <p>Connect with me</p>
                     </a>
                 </div>
                 <div class="contact-card">
-                    <a href="https://github.com" target="_blank">
-                        <span class="contact-icon">💻</span>
+                    <a href="https://github.com/VijayTheHunter" target="_blank">
+                        <i class="fab fa-github contact-icon"></i>
                         <span>GitHub</span>
                         <p>View my code</p>
                     </a>
                 </div>
                 <div class="contact-card">
-                    <a href="https://wa.me/1234567890" target="_blank">
-                        <span class="contact-icon">📱</span>
+                    <a href="https://wa.me/9025145105" target="_blank">
+                        <i class="fab fa-whatsapp contact-icon"></i>
                         <span>WhatsApp</span>
                         <p>Chat with me</p>
                     </a>
                 </div>
                 <div class="contact-card">
-                    <a href="resume.pdf" target="_blank">
-                        <span class="contact-icon">📄</span>
+                    <a href="your-resume.pdf" target="_blank">
+                        <i class="fas fa-file-alt contact-icon"></i>
                         <span>Resume</span>
                         <p>Download CV</p>
                     </a>
@@ -351,5 +372,7 @@
             </div>
         </div>
     </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
