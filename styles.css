@@ -209,7 +209,9 @@ body {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     padding: 6px;
     animation: floatProfile 3s ease-in-out infinite;
-    margin-bottom: 3rem; /* Permanent space */
+    margin-bottom: 3rem;
+    opacity: 1 !important; /* Ensure visibility */
+    visibility: visible !important; /* Ensure visibility */
 }
 
 .profile-image img {
@@ -218,6 +220,8 @@ body {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--dark);
+    display: block; /* Ensure the image is always rendered */
+    opacity: 1; /* Prevent fading */
 }
 
 @keyframes floatProfile {
@@ -610,9 +614,11 @@ body {
     gap: 2rem;
     justify-content: center;
     align-items: center;
-    background: rgba(15, 23, 42, 0.5);
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
     padding: 1.5rem;
     border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -636,6 +642,29 @@ body {
     gap: 0.5rem;
     position: relative;
     z-index: 1;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3); /* Glow effect on hover */
+}
+
+.contact-item:active::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s linear;
 }
 
 .contact-item a {
@@ -673,7 +702,7 @@ body {
 }
 
 .contact-item:hover .contact-icon {
-    transform: scale(1.3);
+    transform: rotate(360deg); /* Rotate icon on hover */
     color: var(--secondary);
 }
 
@@ -698,7 +727,7 @@ body {
 /* Ripple Effect */
 @keyframes ripple {
     to {
-        transform: scale(4);
+        transform: translate(-50%, -50%) scale(4);
         opacity: 0;
     }
 }
@@ -785,12 +814,12 @@ body {
     }
 
     .hero {
-        padding: 2rem 1rem; /* Reduced padding */
+        padding: 2rem 1rem;
         margin-top: 3rem;
     }
 
     .hero-content {
-        padding: 1rem; /* Reduced padding */
+        padding: 1rem;
     }
 
     .hero h1 {
@@ -808,20 +837,20 @@ body {
     .profile-image {
         width: 150px;
         height: 150px;
-        margin-bottom: 2rem; /* Reduced but fixed space */
+        margin-bottom: 2rem;
     }
 
     .section {
-        padding: 1.5rem 1rem; /* Reduced padding between sections */
+        padding: 1.5rem 1rem;
     }
 
     .section-title {
         font-size: 2rem;
-        margin-bottom: 1.5rem; /* Reduced margin */
+        margin-bottom: 1.5rem;
     }
 
     .about-grid {
-        gap: 1rem; /* Reduced gap */
+        gap: 1rem;
     }
 
     .about-details h3 {
@@ -834,7 +863,7 @@ body {
 
     .stats-card {
         grid-template-columns: 1fr;
-        padding: 0.8rem; /* Reduced padding */
+        padding: 0.8rem;
     }
 
     .stat-number {
@@ -843,8 +872,8 @@ body {
 
     .skills-container {
         grid-template-columns: 1fr;
-        gap: 1rem; /* Reduced gap */
-        margin-top: 1rem; /* Reduced margin */
+        gap: 1rem;
+        margin-top: 1rem;
     }
 
     .skill-card {
@@ -862,8 +891,8 @@ body {
 
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 1rem; /* Reduced gap */
-        margin-top: 1rem; /* Reduced margin */
+        gap: 1rem;
+        margin-top: 1rem;
     }
 
     .project-card {
@@ -893,6 +922,21 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         padding: 1rem;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .contact-item {
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* System-like shadow */
+        flex: 1 1 auto;
+        min-width: 120px; /* Ensure uniform width */
+        max-width: 200px; /* Prevent stretching */
+        text-align: center;
     }
 
     .contact-item a {
@@ -919,12 +963,12 @@ body {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 1.5rem 0.5rem; /* Further reduced padding */
+        padding: 1.5rem 0.5rem;
         margin-top: 3rem;
     }
 
     .hero-content {
-        padding: 0.8rem; /* Further reduced padding */
+        padding: 0.8rem;
     }
 
     .hero h1 {
@@ -942,16 +986,16 @@ body {
     .profile-image {
         width: 120px;
         height: 120px;
-        margin-bottom: 1.5rem; /* Reduced but fixed space */
+        margin-bottom: 1.5rem;
     }
 
     .section {
-        padding: 1rem 0.5rem; /* Further reduced padding */
+        padding: 1rem 0.5rem;
     }
 
     .section-title {
         font-size: 1.8rem;
-        margin-bottom: 1rem; /* Further reduced margin */
+        margin-bottom: 1rem;
     }
 
     .about-details h3 {
@@ -1007,6 +1051,12 @@ body {
     .contact-grid {
         gap: 0.8rem;
         padding: 0.8rem;
+    }
+
+    .contact-item {
+        padding: 0.3rem 0.6rem;
+        min-width: 100px;
+        max-width: 150px;
     }
 
     .contact-item a {
