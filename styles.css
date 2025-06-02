@@ -836,3 +836,105 @@ body {
         overflow-x: hidden;
     }
 }
+
+
+/* Improved scaling for mobile to maintain alignment and layout */
+@media (max-width: 1024px) {
+    body {
+        zoom: 0.85;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        zoom: 0.75;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        zoom: 0.6;
+    }
+}
+
+/* Prevent infinite scroll by setting minimum height on body and sections */
+body, .section, .projects-grid, .hero {
+    min-height: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* Prevent profile image from pushing layout */
+.profile-image {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto 1.5rem;
+}
+
+/* Project card improvements for scaling */
+.project-card {
+    min-height: 100%;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+/* Enhanced project grid and card layout for clarity across devices */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    align-items: stretch;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--surface);
+    transition: all 0.3s ease;
+}
+
+.project-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-content {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.project-tech {
+    margin-top: auto;
+    margin-bottom: 1rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
