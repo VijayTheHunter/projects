@@ -26,7 +26,7 @@ body {
     flex-direction: column;
 }
 
-/* Ensure viewport scaling for desktop-like view on mobile */
+/* Ensure viewport scaling for mobile */
 @-webkit-viewport { width: device-width; }
 @-moz-viewport { width: device-width; }
 @viewport { width: device-width; }
@@ -189,7 +189,7 @@ body {
     text-align: center;
     position: relative;
     padding: 4rem 1rem;
-    margin-top: 2rem; /* Move content down */
+    margin-top: 2rem;
 }
 
 .hero-content {
@@ -755,6 +755,11 @@ body {
     .project-image {
         height: 180px;
     }
+
+    .contact-grid {
+        flex-direction: column !important;
+        align-items: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -863,7 +868,7 @@ body {
     }
 
     .contact-grid {
-        flex-direction: column;
+        flex-direction: column !important;
         align-items: center;
     }
 
@@ -894,7 +899,7 @@ body {
     }
 
     .bg-animation::before {
-        animation: none; /* Disable heavy animations on mobile */
+        animation: none;
     }
 }
 
@@ -982,5 +987,10 @@ body {
     .contact-card a {
         width: 100px;
         height: 100px;
+    }
+
+    .contact-grid {
+        flex-direction: column !important;
+        align-items: center;
     }
 }
