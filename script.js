@@ -41,12 +41,124 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Contact Method Animations
+    gsap.utils.toArray('.contact-method').forEach((method, index) => {
+        gsap.from(method, {
+            opacity: 0,
+            x: -30,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.contact-methods',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+    });
+
     // Vanilla Tilt for Profile Image
     VanillaTilt.init(document.querySelector('.profile-image'), {
         max: 15,
         speed: 400,
         glare: true,
         'max-glare': 0.5
+    });
+
+    // Awards Carousel
+    const swiper = new Swiper('.awards-carousel', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        loopAdditionalSlides: 3,
+        centeredSlides: true,
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false,
+        },
+        speed: 1000,
+        grabCursor: true,
+        touchEventsTarget: 'container',
+        breakpoints: {
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+            },
+            480: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            }
+        }
+    });
+
+    // Award Modal Functionality
+    const modal = document.getElementById('awardModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalDetails = document.getElementById('modalDetails');
+    const closeModal = document.querySelector('.award-modal-close');
+
+    const awardsData = {
+        award1: {
+            title: 'VINTRA 2023 - 1st Place',
+            description: 'Arduino Workshop',
+            details: 'Awarded 1st place in the Arduino Workshop event at VINTRA 2023, an intramural annual co-curricular fest held on 17-18 August 2023, organized by the Department of ECE, School of SEET, Kalasalingam Academy of Research and Education.'
+        },
+        award2: {
+            title: 'Euphoria 2025 - 2nd Place',
+            description: 'Sustainosphere',
+            details: 'Secured 2nd place in the Sustainosphere event at Euphoria 2025, a techno-management meet held on 13-14 March 2025, organized by the Department of ECE, School of Electronics, Electrical & Biomedical, Kalasalingam Academy of Research and Education.'
+        },
+        award3: {
+            title: 'VINTRA 2024 - 2nd Place',
+            description: 'IOTROPOLIS',
+            details: 'Secured 2nd place in the IOTROPOLIS event at VINTRA 2024, an intramural annual co-curricular fest held on 18-19 October 2024, organized by the Department of ECE, School of SEET, Kalasalingam Academy of Research and Education.'
+        },
+        award4: {
+            title: 'VINTRA 2024 - 1st Place',
+            description: 'MATHFLIX',
+            details: 'Achieved 1st place in the MATHFLIX event at VINTRA 2024, an intramural annual co-curricular fest held on 18-19 October 2024, organized by the Department of ECE, School of SEET, Kalasalingam Academy of Research and Education.'
+        },
+        award5: {
+            title: 'Robocraze 2025 - Winner',
+            description: 'Arduino Project-A-Thon',
+            details: 'Winner of the Arduino Project-A-Thon by Robocraze in May 2025, certified by Daniel D\'Souza (Chief Technical Officer) and Pranay Agarwal (Chief Executive Officer). Certificate Number: RC/34/003.'
+        },
+        award6: {
+            title: 'IoTronz 2023 - 3rd Place',
+            description: 'IoT Innovation Challenge',
+            details: 'Achieved 3rd place in the IoT Innovation Challenge at IoTronz 2023, a national-level hackathon held on 10-11 June 2023, organized by the IoT Research and Innovation Lab, India.'
+        }
+    };
+
+    document.querySelectorAll('.award-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const awardId = item.getAttribute('data-award-id');
+            const award = awardsData[awardId];
+            if (award) {
+                modalTitle.textContent = award.title;
+                modalDescription.textContent = award.description;
+                modalDetails.textContent = award.details;
+                modal.style.display = 'flex';
+                swiper.autoplay.stop();
+            }
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        swiper.autoplay.start();
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            swiper.autoplay.start();
+        }
     });
 
     // Smooth Scrolling
@@ -99,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.to(follower, { duration: 0.3, x: e.clientX, y: e.clientY });
     });
 
-    document.querySelectorAll('.btn, .project-link, .contact-link').forEach(element => {
+    document.querySelectorAll('.btn, .project-link, .contact-link, .award-item, .contact-method').forEach(element => {
         element.addEventListener('mouseenter', () => {
             cursor.classList.add('active');
             follower.classList.add('active');
@@ -163,42 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setInterval(createParticle, 1500);
-
-    // Ripple Effect
-    function createRipple(event) {
-        const button = event.currentTarget;
-        const ripple = document.createElement('span');
-        const rect = button.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = event.clientX - rect.left - size / 2;
-        const y = event.clientY - rect.top - size / 2;
-
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.style.position = 'absolute';
-        ripple.style.borderRadius = '50%';
-        ripple.style.background = 'rgba(255, 255, 255, 0.4)';
-        ripple.style.transform = 'scale(0)';
-        ripple.style.animation = 'ripple 0.6s linear';
-        ripple.style.pointerEvents = 'none';
-
-        button.style.position = 'relative';
-        button.style.overflow = 'hidden';
-        button.appendChild(ripple);
-
-        setTimeout(() => ripple.remove(), 600);
-    }
-
-    document.querySelectorAll('.btn, .project-link, .contact-link').forEach(button => {
-        button.addEventListener('click', createRipple);
-    });
-
-    // Theme Toggle
-    const themeToggle = document.querySelector('.theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-theme');
-    });
 
     // Scroll Event Listener
     window.addEventListener('scroll', () => {
